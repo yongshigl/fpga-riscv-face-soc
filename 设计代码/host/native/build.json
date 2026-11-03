@@ -1,0 +1,8 @@
+﻿{
+    "built_utc":  "2026-10-25T09:30:30.2582636Z",
+    "source_sha256":  "CAFF5E9AC9E82DFF3B51A40E2CAAF733E060C64A038C2FE0C073BE843C20D6BC",
+    "dll_sha256":  "189F9C3762E39D4AFF3FC6D4054F9A5ECDD1D6976F71D0C6ED425FC88D7F5FBE",
+    "compiler_options":  "/O2 /W4 /WX /MT /LD",
+    "architecture":  "x64",
+    "work_directory":  "D:\\FPGA_Work\\build_tools\\serial_native_91e4434dbead4032973f9ede555d1ff4"
+}

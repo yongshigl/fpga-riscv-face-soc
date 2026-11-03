@@ -1,0 +1,43 @@
+{
+  "clock_hz": 162000000,
+  "iterations": 7500,
+  "compiler_flags": [
+    "-march=rv32im",
+    "-mabi=ilp32",
+    "-O3",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-msmall-data-limit=0",
+    "-mno-relax",
+    "-fno-inline-functions",
+    "-mno-div",
+    "-falign-functions=16",
+    "-fsched2-use-superblocks",
+    "-fsched-pressure",
+    "-funroll-loops",
+    "--param=max-unroll-times=3",
+    "--param=max-unrolled-insns=40",
+    "-fno-tree-dominator-opts",
+    "-fno-code-hoisting",
+    "-fno-tree-pre",
+    "-fno-if-conversion",
+    "-fno-if-conversion2",
+    "-fno-tree-forwprop",
+    "-fno-tree-ccp",
+    "-fno-rename-registers",
+    "-DCOREMARK_RAM_BYTES=5120"
+  ],
+  "isa": "rv32im",
+  "hardware_division": false,
+  "linker_relaxation": false,
+  "ram_bytes": 5120,
+  "static_end": 268437500,
+  "stack_reserve_bytes": 3076,
+  "data_rom_enable": true,
+  "coremark_version": "v1.01",
+  "elf_sha256": "257f372a426c860b5332c1258e3655e204b398eea2fe4cb597fb8a5967b78d96",
+  "files": {
+    "coremark_board_text.hex": "adfe77acdd36cd603d82d11a1dd4867c5eaf4a29246c7da9fd6be90c3a9598b5",
+    "coremark_board_data.hex": "2fbff00fef651a8e80f3e813114279c76b320540e63f65f8aa1c456abbd14b1b"
+  }
+}

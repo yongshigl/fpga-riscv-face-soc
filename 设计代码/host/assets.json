@@ -1,0 +1,88 @@
+{
+  "assets": [
+    {
+      "path": "test_images/astronaut.png",
+      "url": "https://api.github.com/repos/scikit-image/scikit-image/contents/skimage/data/astronaut.png?ref=v0.22.0",
+      "github_json": true,
+      "source": "scikit-image v0.22.0; NASA portrait of Eileen Collins",
+      "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+      "bytes": 791555
+    },
+    {
+      "path": "test_images/obama.jpg",
+      "url": "https://api.github.com/repos/ageitgey/face_recognition/contents/examples/obama.jpg",
+      "github_json": true,
+      "source": "face_recognition examples; official portrait of Barack Obama",
+      "sha256": "0930e3aa8cae5920329c0c8cbc6a2ab70f47b0e67b432875beaa95cbf7e741f6",
+      "bytes": 279922
+    },
+    {
+      "path": "test_images/obama2.jpg",
+      "url": "https://api.github.com/repos/ageitgey/face_recognition/contents/examples/obama2.jpg",
+      "github_json": true,
+      "source": "face_recognition examples; second photograph for a positive pair",
+      "sha256": "a7efcc907375274796f39646510704aa86672d59f6d5469d69af3c85590976a6",
+      "bytes": 184455
+    },
+    {
+      "path": "test_images/biden.jpg",
+      "url": "https://api.github.com/repos/ageitgey/face_recognition/contents/examples/biden.jpg",
+      "github_json": true,
+      "source": "face_recognition examples; portrait of Joe Biden",
+      "sha256": "3c17508bb91554c637a2eabddfae790e5bb1caba93130814fc2ac50be9760c4c",
+      "bytes": 353723
+    },
+    {
+      "path": "models/LICENSE-MOBILEFACENET",
+      "url": "https://api.github.com/repos/foamliu/MobileFaceNet/contents/LICENSE?ref=v1.0",
+      "github_json": true,
+      "source": "foamliu/MobileFaceNet v1.0; Apache-2.0",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "models/MobileFaceNet.onnx",
+      "url": "https://api.github.com/repos/foamliu/MobileFaceNet/git/blobs/5d111882bdd6d3452884da4c3da428654cdfe3c2",
+      "github_json": true,
+      "git_blob": "5d111882bdd6d3452884da4c3da428654cdfe3c2",
+      "source": "foamliu/MobileFaceNet trained ONNX model; immutable Git blob",
+      "sha256": "b7120c095d60094f28a4a54ba6a8bf51b297a6273fb40ef6350dfec1f63d9507",
+      "bytes": 3998070
+    },
+    {
+      "path": "models/MobileFaceNet.onnx.data",
+      "url": "https://api.github.com/repos/foamliu/MobileFaceNet/git/blobs/7173db8cd015744356a30166814b30c72204f6c9",
+      "github_json": true,
+      "git_blob": "7173db8cd015744356a30166814b30c72204f6c9",
+      "source": "foamliu/MobileFaceNet external ONNX weights; immutable Git blob",
+      "sha256": "0b6400e57e9973bed03816c500eb0c2819c623634cf5ea005e6508e95af883f6",
+      "bytes": 4071936
+    },
+    {
+      "path": "../third_party/jpeg_ls/RTL/jls_encoder.v",
+      "url": "https://api.github.com/repos/WangXuan95/FPGA-JPEG-LS-encoder/git/blobs/cbfd9720db09b6dc8209a81c83ed581070a39b3c",
+      "github_json": true,
+      "git_blob": "cbfd9720db09b6dc8209a81c83ed581070a39b3c",
+      "source": "WangXuan95/FPGA-JPEG-LS-encoder 6bce7c5c21bd7c17bc2a0796171c1ac28a09d959; GPL-3.0",
+      "sha256": "8f4d9ea1b74759229fb297cd475fb14e1ddbf5995a9807a3d66d37bed67daa5b",
+      "bytes": 32952
+    },
+    {
+      "path": "../third_party/jpeg_ls/LICENSE",
+      "url": "https://api.github.com/repos/WangXuan95/FPGA-JPEG-LS-encoder/git/blobs/871ce8e638ad6d763308e44411d2c4a2e658cf55",
+      "github_json": true,
+      "git_blob": "871ce8e638ad6d763308e44411d2c4a2e658cf55",
+      "source": "WangXuan95/FPGA-JPEG-LS-encoder; GPL-3.0",
+      "sha256": "81cbae84a29ce7e770bf2bc7b178e50bda0ce8de6067aba661b0bc7b05b562f8",
+      "bytes": 35821
+    },
+    {
+      "path": "../third_party/charls/charls.native.4.1.1.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/charls.native/4.1.1/charls.native.4.1.1.nupkg",
+      "github_json": false,
+      "source": "CharLS.Native 4.1.1 NuGet package; BSD-3-Clause",
+      "sha256": "13c5b07bef3fe360df2c5eabdfda9e0fe2306f9368cd354e953365e456c95a88",
+      "bytes": 411863
+    }
+  ]
+}

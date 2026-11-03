@@ -1,0 +1,7 @@
+Flask==3.1.3
+numpy==2.2.6
+opencv-python-headless==5.0.0.93
+onnxruntime==1.20.1
+imagecodecs==2025.3.30
+Pillow==12.2.0
+pyserial==3.5

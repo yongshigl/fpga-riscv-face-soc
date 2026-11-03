@@ -1,0 +1,1 @@
+create_generated_clock -name {cpu_clk} -source [get_ports {clk}] [get_pins {clock_pll/CLKOUT0}] -master_clock [get_clocks {sys_clk_27m}] -multiply_by {42} -divide_by {7}

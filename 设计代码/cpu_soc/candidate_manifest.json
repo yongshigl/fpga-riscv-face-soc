@@ -1,0 +1,92 @@
+{
+  "project": "v492_u3",
+  "generated_utc": "2026-10-28T10:30:00+00:00",
+  "board_run_utc": "2026-10-28T10:35:00+00:00",
+  "clock_hz": 162000000,
+  "pll_feedback": 21,
+  "pll_divider": 7,
+  "btb_index_bits": 6,
+  "ras_bits": 3,
+  "fetch_queue_depth": 2,
+  "control_load_guard": false,
+  "cache_register_tags": false,
+  "icache_set_bits": 6,
+  "dcache_set_bits": 4,
+  "icache_bytes": 4096,
+  "dcache_bytes": 1024,
+  "placement_seed": 447,
+  "route_seed": 3,
+  "ticks_source": "board (7500-iteration formal run over COM7 @115200, 16.71 s)",
+  "board": {
+    "iterations": 7500,
+    "total_ticks": 2707436244,
+    "ticks_per_iteration": 360991.4992,
+    "runtime_s": 16.71257,
+    "uart_port": "COM7",
+    "uart_baud": 115200,
+    "programming": "volatile JTAG SRAM configuration (flash_written=false)",
+    "jtag_cable": "Pango USB Cable II (VID_0403&PID_6010)",
+    "crcref": "0xe9f5 seedcrc",
+    "crcs": [
+      "0xe9f5",
+      "0xe714",
+      "0x1fd7",
+      "0x8e3a"
+    ],
+    "crcall_match_sim": true,
+    "correct_operation_validated": true,
+    "runs": [
+      {
+        "file": "board_run/coremark_uart_7500.txt",
+        "bytes": 836,
+        "md5": "db88b2b99448efe18872dce262e51a23"
+      },
+      {
+        "file": "board_run/coremark_uart_7500_run2.txt",
+        "bytes": 836,
+        "md5": "db88b2b99448efe18872dce262e51a23"
+      }
+    ],
+    "runs_byte_identical": true,
+    "repeat_cycles": 2
+  },
+  "ticks_per_iteration": 360991.4992,
+  "ticks_per_iteration_sim32": 361081.16,
+  "sim_minus_board_ticks_per_iteration": 89.66,
+  "cm_per_mhz": 2.7701483,
+  "coremark_score": 448.76403,
+  "timing_met": true,
+  "timing": {
+    "clock_hz_requested": 162000200.0,
+    "clock_hz_estimated": 162871000.0,
+    "period_requested_ns": 6.1728,
+    "slack_ns": 0.033,
+    "hold_slack_ns": 0.144,
+    "failing_endpoints": 0,
+    "total_endpoints": 14300
+  },
+  "lut_definition": "post-route CLMA LUT + CLMS LUT (device .prr)",
+  "resources_post_route": {
+    "lut": 4678,
+    "ff": 2693,
+    "distributed_ram_luts": 198,
+    "apm": 4,
+    "drm": 9.5
+  },
+  "coremark_per_lut": 0.095931,
+  "resources_post_route_hierarchical": {
+    "lut": 4445,
+    "ff": 2693,
+    "distributed_ram_luts": 198,
+    "apm": 4,
+    "drm": 9.5
+  },
+  "coremark_per_lut_hierarchical": 0.100959,
+  "firmware": {
+    "iterations": 7500,
+    "elf_sha256": "257f372a426c860b5332c1258e3655e204b398eea2fe4cb597fb8a5967b78d96"
+  },
+  "bitstream_md5": "28a363baefa13737526bea04389a5f95",
+  "board_tested": true,
+  "note": "Formal CoreMark: matching source/firmware/clock, correct CRCs, 16.71 s (>10 s), post-route resources from the same build. Volatile JTAG only; flash_written=false. Two independent program-and-run cycles produced byte-identical UART output (md5 db88b2b99448efe18872dce262e51a23), so the tick count is deterministic on board."
+}

@@ -1,0 +1,22 @@
+create_clock -name {sys_clk} [get_ports {sys_clk}] -period {37.037037} -waveform {0.0 18.518518}
+create_clock -name {ref_clk} [get_ports {clk_p}] -period {8.0} -waveform {0.0 4.0}
+create_generated_clock -name {rst_clk} -source [get_ports {clk_p}] [get_pins {memory_controller/u_ddrphy_top/rst_clk_gpll/clkout0}] -master_clock [get_clocks {ref_clk}] -multiply_by {16} -divide_by {16}
+create_generated_clock -name {ddrphy_sysclk} -source [get_ports {clk_p}] [get_pins {memory_controller/u_ddrphy_top/ddrphy_gpll/clkout0}] -master_clock [get_clocks {ref_clk}] -multiply_by {16} -divide_by {16}
+create_generated_clock -name {phy_dq_clk_0} -source [get_ports {clk_p}] [get_pins {memory_controller.u_ddrphy_top.ddrphy_slice_top.i_dqs_bank[0].ddrphy_ppll/clkoutphy}] -master_clock [get_clocks {ref_clk}] -multiply_by {16} -divide_by {2}
+create_generated_clock -name {phy_dq_sysclk_0} -source [get_pins {memory_controller.u_ddrphy_top.ddrphy_slice_top.i_dqs_bank[0].ddrphy_ppll/clkoutphy}] [get_pins {memory_controller.u_ddrphy_top.ddrphy_slice_top.i_dqs_bank[0].u_ddrphy_ioclkdiv/CLKDIVOUT}] -master_clock [get_clocks {phy_dq_clk_0}] -edges {5 13 21} -edge_shift {0 0 0}
+create_generated_clock -name {phy_dq_clk_1} -source [get_ports {clk_p}] [get_pins {memory_controller.u_ddrphy_top.ddrphy_slice_top.i_dqs_bank[1].ddrphy_ppll/clkoutphy}] -master_clock [get_clocks {ref_clk}] -multiply_by {16} -divide_by {2}
+create_generated_clock -name {phy_dq_sysclk_1} -source [get_pins {memory_controller.u_ddrphy_top.ddrphy_slice_top.i_dqs_bank[1].ddrphy_ppll/clkoutphy}] [get_pins {memory_controller.u_ddrphy_top.ddrphy_slice_top.i_dqs_bank[1].u_ddrphy_ioclkdiv/CLKDIVOUT}] -master_clock [get_clocks {phy_dq_clk_1}] -edges {5 13 21} -edge_shift {0 0 0}
+set_multicycle_path 2 -from [get_clocks {ddrphy_sysclk}] -to [get_clocks {phy_dq_sysclk_0 phy_dq_sysclk_1}]
+set_clock_uncertainty {0.4} -from [get_clocks {ddrphy_sysclk}] -to [get_clocks {phy_dq_sysclk_0 phy_dq_sysclk_1}] -setup -hold
+set_clock_uncertainty {0.4} -from [get_clocks {phy_dq_sysclk_0 phy_dq_sysclk_1}] -to [get_clocks {ddrphy_sysclk}] -setup -hold
+# The encrypted PHY's reset/training domains follow its supplied pnr/ddr_test.fdc.
+# Keep UI-to-divided-PHY data paths timed; do not cut either 125 MHz data clock.
+set_clock_groups -name {vendor_ref_clk} -asynchronous -group [get_clocks {ref_clk}]
+set_clock_groups -name {vendor_rst_clk} -asynchronous -group [get_clocks {rst_clk}]
+set_clock_groups -name {vendor_phy_dq_clk_0} -asynchronous -group [get_clocks {phy_dq_clk_0}]
+set_clock_groups -name {vendor_phy_dq_clk_1} -asynchronous -group [get_clocks {phy_dq_clk_1}]
+create_generated_clock -name {cpu_clk} -source [get_ports {sys_clk}] [get_pins {clock_pll/CLKOUT0}] -master_clock [get_clocks {sys_clk}] -multiply_by {40} -divide_by {8}
+create_generated_clock -name {ai_clk} -source [get_ports {sys_clk}] [get_pins {clock_pll/CLKOUT1}] -master_clock [get_clocks {sys_clk}] -multiply_by {40} -divide_by {15}
+create_clock -name {camera_clk_0} [get_ports {camera_clk_0}] -period {10.000}
+create_clock -name {camera_clk_1} [get_ports {camera_clk_1}] -period {10.000}
+set_clock_groups -name {transaction_domains} -asynchronous -group [get_clocks {sys_clk}] -group [get_clocks {cpu_clk}] -group [get_clocks {ai_clk}] -group [get_clocks {ref_clk rst_clk ddrphy_sysclk phy_dq_clk_0 phy_dq_sysclk_0 phy_dq_clk_1 phy_dq_sysclk_1}] -group [get_clocks {camera_clk_0}] -group [get_clocks {camera_clk_1}]

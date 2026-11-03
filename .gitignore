@@ -1,0 +1,12 @@
+# Local generated files
+__pycache__/
+*.pyc
+.venv*/
+*.swp
+*.tmp
+.DS_Store
+
+# Local tool state
+.lo_profile/
+.vscode/
+.idea/

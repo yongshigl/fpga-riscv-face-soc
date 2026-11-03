@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PanGu Vision</title>
+    <link rel="stylesheet" href="/static/console.css" />
+    <script defer src="/static/vendor/lucide.min.js"></script>
+    <script defer src="/static/console.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">PG</span>
+        <div>
+          <h1>PanGu Vision</h1>
+          <span class="device">200K MINI &middot; PG2L200H</span>
+        </div>
+      </div>
+      <nav aria-label="Views" class="tabs">
+        <button class="tab active" data-view="preview" aria-selected="true">
+          <i data-lucide="camera"></i><span data-text="preview"></span>
+        </button>
+        <button class="tab" data-view="recognition" aria-selected="false">
+          <i data-lucide="scan-face"></i><span data-text="recognition"></span>
+        </button>
+        <button class="tab" data-view="metrics" aria-selected="false">
+          <i data-lucide="activity"></i><span data-text="metrics"></span>
+        </button>
+      </nav>
+      <div class="connection">
+        <span id="connection-dot" class="dot"></span
+        ><span id="connection-state"></span><code id="serial-port">COM7</code>
+      </div>
+    </header>
+    <div class="toolbar">
+      <div class="source-control">
+        <label for="source" data-text="source"></label
+        ><select id="source">
+          <option value="camera0">CAM 0</option>
+          <option value="camera1">CAM 1</option>
+          <option value="obama2">Obama 2</option>
+          <option value="obama">Obama</option>
+          <option value="biden">Biden</option>
+          <option value="astronaut">Astronaut</option>
+          <option value="uploaded" hidden id="uploaded-option"></option></select
+        ><label class="icon-button file-button" tabindex="0" data-tip="upload"
+          ><i data-lucide="image-plus"></i
+          ><input
+            type="file"
+            accept="image/*"
+            id="image-file"
+            aria-label="Upload image"
+        /></label>
+      </div>
+      <div class="commands">
+        <button class="command" id="infer" disabled>
+          <i data-lucide="scan-face"></i><span data-text="infer"></span></button
+        ><button class="command secondary" id="infer-onboard" disabled>
+          <i data-lucide="zap"></i><span data-text="inferOnboard"></span></button
+        ><button class="command secondary" id="load-models" disabled>
+          <i data-lucide="cpu"></i><span data-text="load"></span></button
+        ><span class="toolbar-divider"></span
+        ><button
+          class="icon-button"
+          id="preview-toggle"
+          disabled
+          data-tip="pause"
+        >
+          <i data-lucide="pause"></i></button
+        ><button class="icon-button" id="reconnect" data-tip="reconnect">
+          <i data-lucide="refresh-cw"></i></button
+        ><a class="icon-button" href="/api/report" download data-tip="export"
+          ><i data-lucide="download"></i
+        ></a>
+      </div>
+    </div>
+    <div class="error-band" id="error" role="alert" hidden></div>
+    <main>
+      <div class="workspace">
+        <div class="primary">
+          <section class="view" id="view-preview">
+            <div class="section-heading">
+              <h2 data-text="stereo"></h2>
+              <span id="preview-state" class="muted"></span>
+            </div>
+            <div class="cameras">
+              <figure class="camera">
+                <figcaption>
+                  <span class="channel channel-zero">CAM 0</span
+                  ><span id="sensor0" class="sensor"></span>
+                </figcaption>
+                <div class="camera-frame">
+                  <div class="image-empty" id="empty0">
+                    <i data-lucide="camera-off"></i
+                    ><span data-text="waitingFrame"></span>
+                  </div>
+                  <img id="camera0" alt="Camera 0" hidden />
+                </div>
+                <div class="frame-data">
+                  <span id="size0">640 &times; 360</span
+                  ><span><strong id="fps0">0.00</strong> FPS</span
+                  ><span id="age0"></span><code id="sequence0">#0</code>
+                </div>
+              </figure>
+              <figure class="camera">
+                <figcaption>
+                  <span class="channel channel-one">CAM 1</span
+                  ><span id="sensor1" class="sensor"></span>
+                </figcaption>
+                <div class="camera-frame">
+                  <div class="image-empty" id="empty1">
+                    <i data-lucide="camera-off"></i
+                    ><span data-text="waitingFrame"></span>
+                  </div>
+                  <img id="camera1" alt="Camera 1" hidden />
+                </div>
+                <div class="frame-data">
+                  <span id="size1">640 &times; 360</span
+                  ><span><strong id="fps1">0.00</strong> FPS</span
+                  ><span id="age1"></span><code id="sequence1">#0</code>
+                </div>
+              </figure>
+            </div>
+            <div class="diagnostics">
+              <span
+                ><span data-text="crc"></span><strong id="crc">0</strong></span
+              ><span
+                ><span data-text="decode"></span
+                ><strong id="decode">0</strong></span
+              ><span id="format" class="muted"></span>
+            </div>
+            <div class="input-heading">
+              <h3 data-text="selectedImage"></h3>
+              <span id="input-name" class="muted">CAM 0</span>
+            </div>
+            <div class="input-strip">
+              <img id="input-preview" alt="Selected image" hidden /><span
+                id="input-empty"
+                class="muted"
+                data-text="waitingFrame"
+              ></span>
+              <div class="input-values">
+                <div>
+                  <span data-text="firmware"></span
+                  ><code id="firmware">--</code>
+                </div>
+                <div>
+                  <span data-text="cpuClock"></span><code id="cpu-hz">--</code>
+                </div>
+                <div>
+                  <span data-text="aiClock"></span><code id="ai-hz">--</code>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="view" id="view-recognition" hidden>
+            <div class="section-heading">
+              <h2 data-text="recognitionResult"></h2>
+              <time id="result-time" class="muted"></time>
+            </div>
+            <div class="result-frame">
+              <div class="image-empty" id="result-empty">
+                <i data-lucide="scan-face"></i
+                ><span data-text="noResult"></span>
+              </div>
+              <img id="result-image" alt="FPGA recognition result" hidden />
+            </div>
+            <div class="timing-band">
+              <div>
+                <span data-text="totalTime"></span
+                ><strong id="total-time">--</strong>
+              </div>
+              <div>
+                <span data-text="aiTime"></span><strong id="ai-time">--</strong>
+              </div>
+              <div>
+                <span data-text="transferTime"></span
+                ><strong id="transfer-time">--</strong>
+              </div>
+            </div>
+            <div class="diagnostics">
+              <span><span data-text="queueTime"></span><strong id="queue-time">--</strong></span>
+              <span title="采集完成至串口完成的估计加主机停留时间，不含曝光及未测量的 USB/桥积压"><span data-text="inputAge"></span><strong id="input-age">--</strong></span>
+              <code id="input-sequence"></code>
+            </div>
+            <div class="section-heading small">
+              <h3 data-text="faces"></h3>
+              <span id="threshold" class="muted"></span>
+            </div>
+            <div id="faces" class="face-results">
+              <span class="muted" data-text="noResult"></span>
+            </div>
+          </section>
+          <section class="view" id="view-metrics" hidden>
+            <div class="section-heading">
+              <h3 data-text="liveMetrics"></h3>
+              <span id="live-samples" class="muted">0</span>
+            </div>
+            <div class="accuracy-line">
+              <span data-text="liveMedian"></span
+              ><strong id="live-median">--</strong
+              ><span class="muted" id="live-range"></span>
+            </div>
+            <div class="accuracy-line">
+              <span data-text="detectionRate"></span
+              ><strong id="live-detection">--</strong
+              ><span class="muted" data-text="liveNote"></span>
+            </div>
+            <div class="section-heading">
+              <h2 data-text="cpuResults"></h2>
+              <span class="verified-label"
+                ><i data-lucide="check-circle-2"></i
+                ><span data-text="boardMeasured"></span
+              ></span>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-text="configuration"></th>
+                    <th>MHz</th>
+                    <th>CoreMark/MHz</th>
+                    <th>CoreMark/s</th>
+                    <th>LUTs</th>
+                    <th>CoreMark/LUT</th>
+                    <th data-text="runtime"></th>
+                    <th>CRC</th>
+                  </tr>
+                </thead>
+                <tbody id="cpu-results"></tbody>
+              </table>
+            </div>
+            <p class="scope" data-text="scoreScope"></p>
+            <div class="section-heading">
+              <h3 data-text="hardwareModels"></h3>
+              <span id="hardware-validation" class="muted"></span>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-text="model"></th>
+                    <th data-text="layers"></th>
+                    <th data-text="aiTime"></th>
+                    <th data-text="scheduleTime"></th>
+                    <th data-text="verification"></th>
+                  </tr>
+                </thead>
+                <tbody id="model-results"></tbody>
+              </table>
+            </div>
+            <div class="accuracy-line">
+              <span data-text="hostAccuracy"></span
+              ><strong id="host-accuracy">--</strong
+              ><span class="muted" data-text="accuracyScope"></span>
+            </div>
+            <div class="accuracy-line">
+              <span data-text="boardAccuracy"></span
+              ><strong id="board-accuracy">--</strong
+              ><span class="muted" id="board-accuracy-scope"></span>
+            </div>
+          </section>
+        </div>
+        <aside class="side">
+          <div class="section-heading small">
+            <h2 data-text="gallery"></h2>
+            <span id="gallery-count" class="muted">0 / 16</span>
+          </div>
+          <div class="enrollment">
+            <input
+              type="text"
+              id="identity-name"
+              maxlength="32"
+              autocomplete="off"
+              aria-label="Identity name"
+            /><button
+              class="icon-button"
+              id="enroll"
+              disabled
+              data-tip="enroll"
+            >
+              <i data-lucide="user-plus"></i>
+            </button>
+          </div>
+          <div id="gallery" class="gallery">
+            <div class="empty-gallery">
+              <i data-lucide="users"></i><span data-text="emptyGallery"></span>
+            </div>
+          </div>
+          <button id="clear-gallery" class="text-command" disabled>
+            <i data-lucide="trash-2"></i><span data-text="clearGallery"></span>
+          </button>
+          <div class="job-area">
+            <div class="section-heading small">
+              <h3 data-text="boardTask"></h3>
+              <span id="job-state" class="muted"></span>
+            </div>
+            <progress id="job-progress" value="0" max="100" hidden></progress>
+            <div id="job-detail" class="muted"></div>
+            <button id="continuous-toggle" class="text-command" aria-pressed="false" disabled>
+              <i data-lucide="repeat-2"></i><span id="continuous-label" data-text="continuousStart"></span>
+            </button>
+            <p id="continuous-state" class="scope" role="status" data-text="continuousStopped"></p>
+          </div>
+          <div class="hardware-state">
+            <span id="hardware-kind" class="eyebrow">--</span
+            ><strong id="execution-state"></strong>
+            <div class="bus-line">
+              <span>I Cache</span><code id="icache-size">--</code>
+            </div>
+            <div class="bus-line">
+              <span>D Cache</span><code id="dcache-size">--</code>
+            </div>
+            <div class="bus-line"><span>UART</span><code id="serial-baud">921600</code></div>
+            <div class="bus-line">
+              <span>JTAG</span><span data-text="volatile"></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer>
+      <span>PanGu &middot; Stereo / Edge AI</span
+      ><span id="footer-state"></span>
+    </footer>
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </body>
+</html>

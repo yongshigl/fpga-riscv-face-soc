@@ -1,0 +1,621 @@
+{
+  "project": "q53_32k_os_20261029",
+  "built_utc": "2026-10-29T11:22:26.310700+00:00",
+  "device": "PG2L200H-6-FBB676",
+  "cpu_clock_hz": 135000000,
+  "ai_clock_hz": 72000000,
+  "memory_clock_hz": 125000000,
+  "uart_baud": 921600,
+  "firmware": {
+    "cpu_clock_hz": 135000000,
+    "ai_clock_hz": 72000000,
+    "uart_baud": 921600,
+    "firmware_version": "26102A01",
+    "features": {
+      "camera_preview": true,
+      "camera_tensor": true,
+      "compressed_write": true,
+      "packed_tensor_read": true,
+      "max_decoded_bytes": 4096,
+      "camera_coherent_capture": true,
+      "delta_compressed_write": true,
+      "camera_face_decode": true,
+      "benchmark": true,
+      "fast_crc32": true,
+      "reciprocal_normalization": true
+    },
+    "compiler_flags": [
+      "-march=rv32im",
+      "-mabi=ilp32",
+      "-Os",
+      "-mno-div",
+      "-mno-relax",
+      "-msmall-data-limit=0",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-DMINIZ_NO_MALLOC",
+      "-DMINIZ_NO_ARCHIVE_APIS",
+      "-DMINIZ_NO_DEFLATE_APIS",
+      "-DMINIZ_NO_ZLIB_APIS",
+      "-DMINIZ_NO_STDIO",
+      "-DMINIZ_NO_TIME",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/mnt/d/FPGA\u7ade\u8d5b/fpga-riscv/sw/baremetal_include",
+      "-I/mnt/d/FPGA\u7ade\u8d5b/fpga-riscv/third_party/miniz"
+    ],
+    "isa": "RV32I plus MUL/MULH/MULHSU/MULHU; software division",
+    "rom_bytes": 32768,
+    "ram_bytes": 32768,
+    "static_end": 268455136,
+    "stack_reserve_bytes": 13088,
+    "protocol": "PGR1/PGS1 CRC32",
+    "files": {
+      "vision.elf": "7CE2D159C5A0B7A5E77B18C54B7E710975E108E4D7E23FFD7EA0D00AC01B6DC6",
+      "vision_text.hex": "D3C72D3AF6F0E70D264C0EF837259DC9A5DB3068BE6591CE104FF07FD6EB5B6C",
+      "vision_data.hex": "E1269C655DDFF1171F400BB01F76BF8F3410E1C706A64D43404B3529A5AF03FB"
+    },
+    "sources": {
+      "vision_crt0.S": "469c3788533311adc5f92953ddbe71d39cc468d3e7ffeea5e40ffd504ee78f98",
+      "vision_firmware.c": "95d4dec97aa775596a275d66b2e7f10a61584ae14c8dc4bb3130fae6d7d83fc7",
+      "soft_div64.c": "7ed2c9a77c9d43789c5296a9eeab64e4402742e147d8f1ebd549a5495917860c",
+      "vision_bench_32k.ld": "dbb347e8f827019ab1994d534bdb8db704a0f304b3e707b445fc623019a0ae83",
+      "vision_bench.c": "8a410398318d65cf5a43ae64a5368ef09b03c80bec0b90d63cba4206d15801fd",
+      "vision_bench.h": "3dc9c9bcf1c6c5a777745e8ee1a2a059c0f96be3b4c5f7aabab11684bc7cd071",
+      "core_main.c": "bafcc71c2cca06d7e15ac27e58e17f7f0bcb3c8c92404d9fa7039020de46091f",
+      "core_list_join.c": "e6c82700c2e422dc23962bf838f7d1cd3558fe825095fe832beb63f2f8412b14",
+      "core_matrix.c": "7b8c44ee71d3a1a66dbf15d711861762852a45d6ec0c3c8aca6b780742ce3507",
+      "core_state.c": "74d5dfcdc2a2f4a9af5b1d6d0240d60522a24dbc55df20320e30d6d33ee79501",
+      "core_util.c": "3c73f46d7ddc066f92a811aad511808395549f8d67d626612064ebc1b2477290",
+      "core_portme.c": "bfac6748a224931bbeae77e429c9ba4c8924aac8a75511c29798f4a089a6bb2c",
+      "ee_printf.c": "3599c1f6c5baad3892491ba7723fca99fba87a4ee561b485ebf5559c51ff57d9",
+      "core_portme.h": "875d2d2b869a9d87336ceb54cbf2de5804707602864d58130114bca3d3957069",
+      "vision_memory.c": "a57793f1b288f27a9bd493fd94c72f48b9e483e14aca9a5a2b58a7682de46f10",
+      "miniz.h": "8033197e77c9567de66425939ab6164405e54aa3c60acf9312905d32c8cddc03",
+      "miniz_common.h": "8b60e76e726dfcf41a338c3a4c54c70038041a21e6314aa54fd3b7f729ea3412",
+      "miniz_export.h": "195259dc89fb3f83a96426a90ee03dc45acef113150cd3475ea9cfbf1f7784f3",
+      "miniz_tdef.h": "12b09b189c27aa7d0b0ebe0be2f3021a3bab26fe7b19e9b3b6f5c4df7c21e9df",
+      "miniz_tinfl.h": "040aad2d9ca23c487652c150277d950be12e72c5453ae1f7c6713ed2efd16b4e",
+      "miniz_zip.h": "c9343f0d251d92f3730d5fe684d4af67aa0bed25d2d1d39d5fd4746a3c63f796",
+      "miniz_tinfl.c": "9b7edc1fab708166e10f5e90a618a91c95a91496c4692e38160fdae810c1149a",
+      "assert.h": "2baf5fbf0967bc8a8cc3621896d7ef3c8fae5f65944e7997b461eb6211608596",
+      "stdlib.h": "2a3b70348718556198439ac8c902f441d6a5e793592027be3ad92e2d6c714b41",
+      "string.h": "38ac58d311edc744b7bcb5153569289f43e31caf2de3ccbe3e6ed3728584c8ab",
+      "vision_normalize.h": "9acce8a28ce3953ccf4f4f8fb10b82acd412981377960956cb0dc94a297739b6",
+      "vision_crc32.h": "b2e461ac5070e6e80d48727c8bc17c34cd5b5da51d12b85ecb3d44ce0efb019b",
+      "vision_yunet.c": "44c6f9f350f0eecbc49cd9d04c513e49c584925e6b158c7fe1d767eb4153d1a3",
+      "vision_yunet.h": "84c50e9585223044c6e2b9f641faa2cbdaeab2251f3c83508d96f1c2136c67a5"
+    },
+    "coremark_compiler_flags": [
+      "-march=rv32im",
+      "-mabi=ilp32",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-msmall-data-limit=0",
+      "-mno-relax",
+      "-fno-inline-functions",
+      "-mno-div",
+      "-falign-functions=16",
+      "-fsched2-use-superblocks",
+      "-fsched-pressure",
+      "-funroll-loops",
+      "--param=max-unroll-times=3",
+      "--param=max-unrolled-insns=40",
+      "-fno-tree-dominator-opts",
+      "-fno-code-hoisting",
+      "-fno-tree-pre",
+      "-fno-if-conversion",
+      "-fno-if-conversion2",
+      "-fno-tree-forwprop",
+      "-fno-tree-ccp",
+      "-fno-rename-registers",
+      "-UFLAGS_STR",
+      "-DFLAGS_STR=\"-Os --param=max-unroll-times=3 -march=rv32im -mno-div\"",
+      "-Dmain=coremark_entry",
+      "-DITERATIONS=1",
+      "-DCLOCKS_PER_SEC=135000000u",
+      "-DMAIN_HAS_NOARGC=1",
+      "-DHAS_FLOAT=0",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-I/mnt/d/FPGA\u7ade\u8d5b/fpga-riscv/coremark_port",
+      "-I/mnt/d/FPGA\u7ade\u8d5b/fpga-riscv/third_party/coremark",
+      "-w"
+    ],
+    "coremark_optimization": "-Os"
+  },
+  "icache_bytes": 4096,
+  "dcache_bytes": 2048,
+  "mac_pixels": 16,
+  "logical_tile_pixels": 32,
+  "mac_channels": 16,
+  "ai_read_cache_lines": 8,
+  "icache_set_bits": 6,
+  "dcache_set_bits": 5,
+  "ai_depthwise_channel_outer": true,
+  "ai_read_cache_full_lru": true,
+  "camera_preview": true,
+  "rgb_datapath": true,
+  "camera_format": "OV5640 RGB565 1280x720 on-board tensor",
+  "jpeg_quantization_scale": 8,
+  "camera_overlap_capture": false,
+  "camera_capture_lead_us": 60000,
+  "camera_max_send_age_us": 30000,
+  "cached_cpu_optimized": true,
+  "v64_cpu": true,
+  "cpu_core": "rv32i_pipeline_core_trap_value.s",
+  "cpu_soc": "rv32i_cached_soc_device_address.v",
+  "counter_csr_predecode": true,
+  "cache_ingress_write": true,
+  "placement_decongestion": 5,
+  "placement_seed": 3,
+  "fetch_pipe_stages": 1,
+  "pipeline_stages": 6,
+  "external_dvp_input_delays_characterized": false,
+  "timing_met": true,
+  "lut_post_route": 31958,
+  "ff_post_route": 27493,
+  "distributed_ram_luts": 460,
+  "apm": 394,
+  "drm": 69.0,
+  "bitstream_sha256": "A2AA956C09C46F767258D50057D5E6E9CECE62F142350C2F3C12A9AF2D2407A8",
+  "volatile_only": true,
+  "clock_independently_measured": false,
+  "sources": [
+    {
+      "name": "src\\DDR_200H\\DDR_200H.idf",
+      "sha256": "63EF1A0D1B1EAFDCDB284D59BF2975B313CAE9945C9C6DEA696B79ADE1462C53"
+    },
+    {
+      "name": "src\\DDR_200H\\DDR_200H.v",
+      "sha256": "740E07A2B9320F6ACE16B0A475B96A2745126F9D9EFB2AA3A2F77E9DC69A4E29"
+    },
+    {
+      "name": "src\\DDR_200H\\DDR_200H_ddrphy_top.v",
+      "sha256": "1A6C278D122F45466BEEE6827EF4C53ECFEF927141ED184062EF3CA55C34DDEE"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\DDR_200H_slice_top_v1_10.v",
+      "sha256": "771570756D354C81246597556A0B9F38E39F8D363AEF5674680629D984C03095"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_calib_mux_v1_0.vp",
+      "sha256": "676E36319E7CE80B93E3543E255D53708D9FC71606587A6E692EAB1EC82ECAED"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_calib_top_v1_10.vp",
+      "sha256": "04FAF434CEF120B5D712911DFC97C8F498901B0679FBA720B806F596D688BDED"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_control_path_adj_v1_10.vp",
+      "sha256": "8CDD7B9EC01C143882217B038CBF840D77E52EE3037E629E75E10B03FC223A38"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_cpd_ctrl_v1_3.vp",
+      "sha256": "56F52683ADBE720C7D43DA1A9F199F4AB3ADD3F3B5960E3F687F87F60267C161"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_cpd_lock_v1_0.vp",
+      "sha256": "A6696F8E79E2D132A6E76AD4997D5366D6C9CF8F05C60F77FEFF1B47B50D0090"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_data_slice_dqs_gate_cal_v1_10.vp",
+      "sha256": "8764275D4EEB8D1765B3A09ABA527D6D3BF3E46F5E1D17EEFC685D7E0DBE1520"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_data_slice_v1_10.vp",
+      "sha256": "E13E33D97ECBFEA1838C4DD28E7F9F1C57DCB974606179523BE46BBA75344D50"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_data_slice_wrcal_v1_10.vp",
+      "sha256": "B7A9757C252F74C4B57EB0FB74738C57E4EED3E669DDD7FFEECA1ACEDD330B2E"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_data_slice_wrlvl_v1_10.vp",
+      "sha256": "871874F4AF0F068571416916898F83EB07052E6E015C5800FFDF65D67620CF7E"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_dfi_v1_3.vp",
+      "sha256": "9828A1EF43A864D287A7A317910FE330BFC904F44E8F60C8773AAFA1D8C1534E"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_dll_update_ctrl_v1_3.vp",
+      "sha256": "BC4E8F402D2FB98920E050A3C1514D44EC959877217D7865A30B22B7DA73CAC6"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_dqs_gate_coarse_cal_v1_0.vp",
+      "sha256": "950A0010929854894C2C92D9F3F8E9DCE0FEE6985FEE70D4160540A058853EDE"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_dqs_rddata_align_v1_10.vp",
+      "sha256": "C0CAB4287A7A7B6B720977C1C5F9259C5F48F8DA18E9A3CA1173A073B1CCF025"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_dqsi_rdel_cal_v1_3.vp",
+      "sha256": "EF7E57755AB7558B1B518AA73999384368F349EFE7077CF9283E0911E711AC1A"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_drift_ctrl_v1_0.vp",
+      "sha256": "8EA99AC6DECF6FE14C0585B4F121D7A1ACC17290D7A1C68725D984E704E277BC"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_eyecal_v1_5.vp",
+      "sha256": "31977DD34339D163ECBD8B9949AC4B65F0EAA6FBCD9A75D787400AE73F7F51D2"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_gate_update_ctrl_v1_3.vp",
+      "sha256": "CE20EB3B9CBE3B392D8BE0AA1D6787247BC7B2D91AF36A1F734F35C9EB03D642"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_gatecal_v1_10.vp",
+      "sha256": "B6859250CA098E81FF05BCAB08DFE8FFEE77648218E90C040A1DD3838A0671F2"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_gpll_phase_v1_0.vp",
+      "sha256": "EF8EBE3742D23848BD2A1492D4901F886CE49AA98DBC295873B67E4116BA8524"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_info_v1_0.vp",
+      "sha256": "0794201BE97885E7695A16B6C35848655B08C4BF191405D26417126512CE4AA8"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_init_v1_0.vp",
+      "sha256": "817F9F32B2260A4C35AF446E89FF4C2D4B065381B25CB2020C538D22B4A45088"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_main_ctrl_v1_10.vp",
+      "sha256": "39D5024D7364B441340B131D265D0648D8B7C1F92CC417424D7C584413C5F4A6"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_rdcal_v1_10.vp",
+      "sha256": "6B4C7F3C24A4750AC69B4E7882617105C6E31F02DA712AAA87932B8561CCEA2B"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_reset_ctrl_v1_3.vp",
+      "sha256": "17189B59ED5307C4A27EC35485B33AF5C98A89E6EE7F9C5D85AAED9C03A77163"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_rst_clk_phase_adj_v1_0.vp",
+      "sha256": "DD1DBAE71726D968DF475FE7FBB2B7321411FA67786092C0DC2E065EDCF39382"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_rst_debounce_v1_0.vp",
+      "sha256": "BFF7ED95C8D305DFB88E6002C6DE8453A21C72C03A5A0521A76DDD105598DC4D"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_slice_rddata_align_v1_0.vp",
+      "sha256": "BEFB44F07D851524109A6DC8E17C5B8062694AA274ED8DBC4F7326B8FE1C443E"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_training_ctrl_v1_0.vp",
+      "sha256": "777E8EE9D8D819FDCF04B39B5A5D6086C52369A7F19F04DBD0D06F7A7D3D6110"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_upcal_v1_0.vp",
+      "sha256": "AFBCA3503DA609F7951AD7FBEF386BD007F403C89F52377211BA521967C94455"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_wdata_path_adj_v1_10.vp",
+      "sha256": "85F625ED4A09964442E8616074EEA9E4757E43B4217589BB9E2F289C9748B272"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_wrcal_v1_7.vp",
+      "sha256": "0A8CB0BB70BD40809260C50BCB85D092C16FEA5D9AB2E4FBBE647CCBD1BFB1B0"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ddrphy\\ips2l_ddrphy_wrlvl_v1_0.vp",
+      "sha256": "00C086BD729BE3AB8287F6EB786CFB3549C97AA92F8465C608B8FC2477DF3EDC"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\ips2l_rst_sync_v1_3.vp",
+      "sha256": "64B8D83F15F2FF373E6B1040405C42051D8761BD1857DEC719C884C2EB59361A"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\distributed_fifo\\ips2l_distributed_fifo_v1_0.vp",
+      "sha256": "D6C0B0D8560B0F22128B4883933944FC686FD7597CFEA0D6C545CC6AF56C0B7A"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\distributed_fifo\\rtl\\ips2l_distributed_fifo_ctr_v1_0.vp",
+      "sha256": "FE31C8F44BEA653AB20BB1830AD4F8ED41566E9CFEF354BD5E2D48C7682F353D"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\distributed_fifo\\rtl\\ips2l_distributed_fifo_v1_0_distributed_fifo_v1_0.vp",
+      "sha256": "867AC91A1485DFE613A81F372D788E784BBA8CD4B0497E56986135E92685BA73"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\distributed_fifo\\rtl\\ips2l_distributed_sdpram_v1_0_distributed_fifo_v1_0.vp",
+      "sha256": "3561BBBBD4E4432A538C3D20818D262B4F1E5517C48296F6B1B4CC8AFDD19AEF"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_apb_cross_v1_2.vp",
+      "sha256": "62F7D55354A8AFE4D02BC6F6D6DC30FC8E9960D3B21709988B887ACC99D09CF5"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_calib_delay_v1_2.vp",
+      "sha256": "A52E992B9766B6CB22ED23AA01D1CC5AC9B6A429A8E49DE7A13AC51DD70E9784"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_cfg_apb_v1_2.vp",
+      "sha256": "482CB280A614F70209F1D07892FDD773A259D2CA0F23E8F38B85A9FAF00513B9"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcd_bm_v1_2.vp",
+      "sha256": "BFBD472DD8B427FE6B003DD510F73DB89F915AC92D31FE8A779C40F9D4E56BEE"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcd_rowaddr_v1_2.vp",
+      "sha256": "4AC4721747B13020E1895BE6265E55DF90968F05BEB8056279589039394BB9BE"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcd_sm_v1_2.vp",
+      "sha256": "D7E710E3ED4D1807FB0BDD4D84C264817247A4DA41123C72439C555573821F49"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcd_top_v1_2.vp",
+      "sha256": "26AB4E142F555602C023F62B19DF52056C6D51DA5052401254066CAE0655DDAA"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcp_back_ctrl_v1_2.vp",
+      "sha256": "FE7B340B41D80EC7428CC38329A41864BCF5C209A6310610D09C7BC8579E541F"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcp_buf_v1_2.vp",
+      "sha256": "DAB35FA172243ECBB5426A8EBCCC2C168368EA0A6EA0558C909B815D781B17D6"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcp_out_v1_2.vp",
+      "sha256": "9471082E23170B144DC619F7F7E08C94B8A03378F72DA388F744D6ACB728928B"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dcp_top_v1_2.vp",
+      "sha256": "21B1F0E3B4660E1078B47000BFE50022346414F5D5E713AC9E522A4F39F76548"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_dfi_v1_2.vp",
+      "sha256": "ABF138D692E634FABE5F569B98D897DFECE8A8AE66CEE1DBA830A56D7E255DF1"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_lp_v1_2.vp",
+      "sha256": "7A80CCB1E053E5C9D8F389169359570F256D709FF2E4AD2C51FDA7A7A6A4239D"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_mrs_v1_2.vp",
+      "sha256": "F78133BC021A57CF469773DAAF102817FC37069447E8ACCC80AFA1F4B20B0AD6"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_prefetch_fifo_v1_2.vp",
+      "sha256": "EE3AA91E980FB3DD08231CF1806A28EDF759F4EA8248ADFD44407D607519B9E4"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_rdatapath_v1_2.vp",
+      "sha256": "72DD8ECE021F4EE74FD576C1628C4F7D3606EF632F0E68B9569A288A092A6B0F"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_reg_fifo2_v1_2.vp",
+      "sha256": "BC9CFF65E4002A51AF0C20C2F0A9B9F17DACDE5157B58691BBFB1C44348EE08A"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_ui_axi_v1_2a.vp",
+      "sha256": "145B69395412BE2553835F9278CDF1CB1703D3BEEB914ABF7D985E3C69F817FB"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_wdatapath_v1_2.vp",
+      "sha256": "DB648E90FF607CA2F9E2B5CCA048DE417439888D0B906288E0CEC7CF038D9DEE"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_wdp_align_v1_2.vp",
+      "sha256": "1645E9EB7FAC3C9C13CD3E0D7367F132293F9CEC16835CE188C6345993D2B730"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_wdp_dcp_v1_2.vp",
+      "sha256": "3F30BE0F49F78F09915743995C950FA6FF8DE5F14598EBC8802E73B5C6D140EE"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\ips2l_mcdq_wrapper_v1_2b.vp",
+      "sha256": "D35010F49BE551FB15AB2655CBEFFCAAAA74FDF3CCB0754B033FC979D615E805"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_com_timing_v1_2.vp",
+      "sha256": "E3F19C4BE6352AB64F07426973387F2876C540EE992F6EAC9D3F2D470B3D49C2"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_tfaw_timing_v1_2.vp",
+      "sha256": "C632619F042BEBB4F059DF7F20EEE90EB2B51B81210430CB37D01958AD3CD30F"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_tfaw_v1_2.vp",
+      "sha256": "AB87B7718BFFC4FB2A2B27765576187F09B5266BBCA7FC393C43C6DEC96FF379"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_timing_act2wr_pass_v1_2.vp",
+      "sha256": "1B3874B059923481F292BA382AD156F7DCDD9AD39DA6C86DDDD480290CCCE498"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_timing_act_pass_v1_2.vp",
+      "sha256": "9F32B6936E039C15F7B07B74480179D39D1B3787965E1B90BD067A7EDE7FDD4C"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_timing_pre_pass_v1_2.vp",
+      "sha256": "E40A64CAEC9725C231CD88DDE69973EAB3ACA38C9D2E66A2C5C0BBDDF3103AE0"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_timing_rd_pass_v1_2.vp",
+      "sha256": "78B1DE719A43EE0FC80E1A5464F7284439D91F1D4B3F83EF2AE5611920293988"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_timing_ref_pass_v1_2.vp",
+      "sha256": "C79DDE6F9A682C55AFF7BB89C4863F76A069B874FB154DFF7D3E4D4A7A88F9D1"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_timing_wr_pass_v1_2.vp",
+      "sha256": "EA3470CA984554D4908EC950314F9242042417C6C4C6B3FD05AC5D6DAAB98C90"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\mcdq_ctrl\\syn_mod\\ips2l_mcdq_trc_timing_v1_2.vp",
+      "sha256": "7234241E5968F91EC6E396794F0BB80F6C7D1BCA2038AA004D5078D3937953DA"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\pll\\ips2l_ddrphy_gpll_v1_3.vp",
+      "sha256": "3FECC367573A4B5BD158E1A8FF106C5C401C5F180143E8E5ABE6BB068E5078D2"
+    },
+    {
+      "name": "src\\DDR_200H\\rtl\\pll\\ips2l_ddrphy_ppll_v1_0.vp",
+      "sha256": "34BB46106B84EAB147F130BD7526F1486D35CAEB40B0258CD59656E50D19DDDD"
+    },
+    {
+      "name": "src\\camera_affine_resampler.v",
+      "sha256": "30B61053C2C4E3A21980D95F0EC2F4007035150EEAD5E274114F34F517AC1E9D"
+    },
+    {
+      "name": "src\\camera_capture_gate.v",
+      "sha256": "70FDFCD8DD247A32407AB0DC7A0D95721DB393AE1AFFF9136E5A8F571768E0BA"
+    },
+    {
+      "name": "src\\camera_control_port.v",
+      "sha256": "8F9AF5B3C7C687E3F7C68A7EA5B24F011424B9B24ABC0F069143D190D554911D"
+    },
+    {
+      "name": "src\\camera_frame_writer.v",
+      "sha256": "37CF4699D37A50D690EBFCB3A106462594236CCAA381FDBB4F76880499D2A0FC"
+    },
+    {
+      "name": "src\\camera_native_stream.v",
+      "sha256": "7FE2BA6AFABDB903CBF3133B8C07CB0DD275289A2ADF3373699A6593FB8ADF51"
+    },
+    {
+      "name": "src\\camera_packet_tx.v",
+      "sha256": "9F9B7A7A62271934A743298A3CC47CAD9DCE4B86A71FA1C006C28469710F4EDA"
+    },
+    {
+      "name": "src\\camera_tensor_writer.v",
+      "sha256": "7CE0DEBEEF72B4B9F2A2DC3AD9E6133CBE5824D6FEE90D96FC4780A32EF9BD49"
+    },
+    {
+      "name": "src\\cpu_data_port.v",
+      "sha256": "DE8112117A392420136687EC86CB37EC35927F983D32D83D6ACF431FD74747E6"
+    },
+    {
+      "name": "src\\data_init.v",
+      "sha256": "620E2939A9B4ED08627AB9A3873ECFCC9EF833BB1A34C90522E0F18C2241C455"
+    },
+    {
+      "name": "src\\ddr_line_port.v",
+      "sha256": "46422C393620A754003BBA478361E3A905EBF56BA7F312BCA24B45F05B7E2CF0"
+    },
+    {
+      "name": "src\\dvp_rgb565.v",
+      "sha256": "288A43258133A4E9B6D0BF07639EE809D7021BF5D5DD373CB2E6982B1693B0CE"
+    },
+    {
+      "name": "src\\frame_capture.v",
+      "sha256": "E396FE25C43B4DF446EE75DB4F597D1729BC99CAD7C8DB472BAB5E3661DFAC42"
+    },
+    {
+      "name": "src\\int8_accelerator.v",
+      "sha256": "5B4D3656006B9694B3B12CB1871F1F9E87B525954131C69AFE8D79834162C950"
+    },
+    {
+      "name": "src\\int8_mac_array.v",
+      "sha256": "5F4A31440B1095739F01984AA1F341D2236AE7CFB626130544B0215D5496B17C"
+    },
+    {
+      "name": "src\\int8_requantize.v",
+      "sha256": "1663EB6E92A27DF6D07DD588FD92C791343F66493FBF90EFA71C233A4BC6FB3B"
+    },
+    {
+      "name": "src\\jpeg_frame_capture.v",
+      "sha256": "DF783A719692C5FA6DBE16A03EF713D853A5B7158375E49360A38D95897F97D5"
+    },
+    {
+      "name": "src\\line_port_arbiter.v",
+      "sha256": "360FD0F0370D3162B9BFF0FB1E255F9EFA7324C5659071197AC8A3F5DF86F678"
+    },
+    {
+      "name": "src\\memory_line_backend.v",
+      "sha256": "123ECEEA4D69AB76F51B334EBA9D81066664524975629A16E31A2A9BA968841E"
+    },
+    {
+      "name": "src\\ov5640_control.v",
+      "sha256": "563305BABC210C9F306FD82F8A151DD1FE116E8D7F11F3C736FB47919D6EDF19"
+    },
+    {
+      "name": "src\\pg2l200h_mini_vision_top.v",
+      "sha256": "C90037F229EBE786EC7924FFF0B6AD9AACAED2F971A86CB02306F458D0188899"
+    },
+    {
+      "name": "src\\rv32i_cached_soc.v",
+      "sha256": "5F3137B285B508A8BB65B7165B806CDD02CC80C4B27F3B181A2161F725166D5F"
+    },
+    {
+      "name": "src\\rv32i_pipeline_core.v",
+      "sha256": "F4E3CD600533BC0D355847B376813A21333B1A08110B72B931FBB54344533A61"
+    },
+    {
+      "name": "src\\sccb_master.v",
+      "sha256": "AF5F4ABB2EE4B82554FE57E21A229CF8A2C6B4D5479F0D5061570C011C623C28"
+    },
+    {
+      "name": "src\\transaction_cdc.v",
+      "sha256": "3DD5EF7A92BE65085E7823DE24B493EEE8A7C5206D096EF67CAB9C5C39EA5C88"
+    },
+    {
+      "name": "src\\two_way_cache.v",
+      "sha256": "4F05B1BCC9ED46182BC1E9C2F1F40F678FAF794A39A0817A33D366C9C06F0986"
+    },
+    {
+      "name": "src\\uart_rx.v",
+      "sha256": "DE89BF1F5E115C13275F17CF7A8FD6100F8E62D2F6525A00EE30E94600C62432"
+    },
+    {
+      "name": "src\\uart_tx.v",
+      "sha256": "118E7FCE728B45CE6E98AA21FBD65055099F984E3D176D918E0931294C306319"
+    },
+    {
+      "name": "src\\vision_config.vh",
+      "sha256": "5CC528A7ADADAC7F067A0A422520008C42306D1B3D69BC6ECD247BA3F3549A78"
+    },
+    {
+      "name": "src\\vision_soc.v",
+      "sha256": "BEF8D037105F86299523FFFC0AE86C454FCC484CDBB17201D044BB11DF6642BF"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "board_pins.fdc",
+      "sha256": "62B6D7BC5B57D84278698D78A34C9A02689308D40EDD02FDB64DB10CBE216565"
+    },
+    {
+      "name": "vision_clocks.fdc",
+      "sha256": "E331452B8933BE13822C72B51B4AB9C42972AC9407F4623136E3AFA37CBEF153"
+    }
+  ],
+  "camera_coherent_capture": true,
+  "camera_bgr_preprocessing": true,
+  "camera_affine_fractional_fixed": true,
+  "camera_rgb_preview": [
+    160,
+    90
+  ],
+  "camera_affine_quantization": "BGR, round-to-even, zero-point padding 128",
+  "camera_preview_bank_words": 2048,
+  "camera_preview_read_latency_cycles": 2,
+  "camera_preview_resolution_unchanged": false,
+  "camera_preview_downsample_bits": 3,
+  "cpu_early_load_request": false,
+  "cdc_payload_async_reset": false,
+  "cdc_capture_bypasses": false,
+  "cpu_reciprocal_normalization": true,
+  "cpu_fast_crc32": true,
+  "cpu_direct_fence_guard": true,
+  "camera_affine_skip_zero_weight_reads": true,
+  "camera_affine_address_pipeline": true,
+  "parent_manifest_sha256": "984fecb25a16a982bb8d2c90e65c4b3baeb156510d77245a3b8b69fc9c3f6c06",
+  "camera_affine_handshake_fixed": true,
+  "timing_report_sha256": "2ED1AC691C83EE87421BF3030C0E4269333B80C1961F7805FFFCE797FE5C266E",
+  "camera1_native_jpeg": true
+}

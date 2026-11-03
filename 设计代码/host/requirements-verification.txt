@@ -1,0 +1,4 @@
+-r requirements-reference.txt
+matplotlib==3.10.9
+vcdvcd==2.6.0
+playwright==1.60.0
